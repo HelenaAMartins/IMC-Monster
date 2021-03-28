@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script>
+      function getInfoImc() {
+        var weightField = document.querySelector("#imc_weight");
+        var weightValue = weightField.value;
+        var heightField = document.querySelector("#imc_height");
+        var heightValue = heightField.value;
+        if (weightValue && heightValue) {
+          calcIMC(weightValue, heightValue);
+        }
+      }
+
+      function calcIMC(weight, height) {
+        var totalIMC = Math.round(weight / (height * height));
+        var sentence = "";
+        var text = `<h2>Seu IMC é</h2><h3>${totalIMC}</h3>`;
+        var buttonClean = `<button onClick="clean()" class="form__button">Voltar</button>`;
+        if (totalIMC < 18.5) {
+          sentece = `<p>Segundo a OMS você está com SUBPESO</p>`;
+        } else if ((totalIMC > 24, 9)) {
+          sentence = `<p>Segundo a OMS você está com SOBREPESO</p>`;
+        } else {
+          sentence = `<p>Segundo a OMS você está SAUDÁVEL</p>`;
+        }
+        var show = document.querySelector("#target");
+        show.innerHTML = text + sentence + buttonClean;
+        show.classList.add("show");
+        // show.classList.add("class-2", "class-3");
+        // show.classList.remove("class-3");
+      }
+
+      function clean() {
+        var weightField = document.querySelector("#imc_weight");
+        var heightField = document.querySelector("#imc_height");
+        var show = document.querySelector("#target");
+        show.classList.remove("show");
+        weightField.value = "";
+        heightField.value = "";
+      }
+    </script>
+    <title>Monster IMC</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">
+        <small>IMC monster</small>
+        <span>Calculator</span>
+      </h1>
+      <div id="form" class="form">
+        <div class="form__figure"></div>
+        <div class="form__fields">
+          <input
+            required
+            id="imc_weight"
+            class="form__input"
+            type="number"
+            placeholder="Peso Ex.60"
+          />
+          <input
+            required
+            id="imc_height"
+            class="form__input"
+            type="number"
+            placeholder="Altura Ex.1.60"
+          />
+          <button onClick="getInfoImc()" class="form__button">Calcular</button>
+        </div>
+        <div id="target"></div>
+      </div>
+    </div>
+    <footer>
+      <ul class="credits">
+        <li>
+          <a
+            href="https://aamatniekss.itch.io/free-pixelart-platformer-tileset/devlog/29921/new-free-tileset"
+            target="_blank"
+            >Créditos Background</a
+          >
+        </li>
+        |
+        <li>
+          <a href="https://lottiefiles.com/40306-monster-blue" target="_blank"
+            >Créditos GIF</a
+          >
+        </li>
+      </ul>
+      <ul class="credits">
+        <li>
+          <a href="https://www.linkedin.com/in/mhelena-martins/" target="_blank"
+            >Developed By</a
+          >
+        </li>
+        |
+        <li>
+          <a href="https://www.linkedin.com/in/nicklima/" target="_blank"
+            >Designed By</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
