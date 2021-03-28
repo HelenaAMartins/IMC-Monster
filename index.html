@@ -22,9 +22,9 @@
         var sentence = "";
         var text = `<h2>Seu IMC é</h2><h3>${totalIMC}</h3>`;
         var buttonClean = `<button onClick="clean()" class="form__button">Voltar</button>`;
-        if (totalIMC < 18.5) {
-          sentece = `<p>Segundo a OMS você está com SUBPESO</p>`;
-        } else if ((totalIMC > 24, 9)) {
+        if (totalIMC < 19) {
+          sentence = `<p>Segundo a OMS você está com SUBPESO</p>`;
+        } else if (totalIMC > 25) {
           sentence = `<p>Segundo a OMS você está com SOBREPESO</p>`;
         } else {
           sentence = `<p>Segundo a OMS você está SAUDÁVEL</p>`;
